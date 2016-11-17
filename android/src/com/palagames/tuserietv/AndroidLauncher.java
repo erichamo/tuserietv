@@ -7,6 +7,7 @@ import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
 import com.palagames.tuserietv.game;
 
 public class AndroidLauncher extends AndroidApplication {
+	
 	@Override
 	protected void onCreate (Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
