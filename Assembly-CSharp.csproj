@@ -45,14 +45,62 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\LeanTouch\Examples\Scripts\LeanDragLine.cs" />
+     <Compile Include="Assets\LeanTouch\Examples\Scripts\LeanDragTrail.cs" />
+     <Compile Include="Assets\LeanTouch\Examples\Scripts\LeanDraggable2D.cs" />
+     <Compile Include="Assets\LeanTouch\Examples\Scripts\LeanDraggable2DInertia.cs" />
+     <Compile Include="Assets\LeanTouch\Examples\Scripts\LeanDraggable2DSmooth.cs" />
+     <Compile Include="Assets\LeanTouch\Examples\Scripts\LeanDraggable3D.cs" />
+     <Compile Include="Assets\LeanTouch\Examples\Scripts\LeanDraggable3DInertia.cs" />
+     <Compile Include="Assets\LeanTouch\Examples\Scripts\LeanDraggable3DSmooth.cs" />
+     <Compile Include="Assets\LeanTouch\Examples\Scripts\LeanOpenUrl.cs" />
+     <Compile Include="Assets\LeanTouch\Examples\Scripts\LeanSelect2D.cs" />
+     <Compile Include="Assets\LeanTouch\Examples\Scripts\LeanSelect2DTransform.cs" />
+     <Compile Include="Assets\LeanTouch\Examples\Scripts\LeanSelect2DTransformRelative.cs" />
+     <Compile Include="Assets\LeanTouch\Examples\Scripts\LeanSelect3D.cs" />
+     <Compile Include="Assets\LeanTouch\Examples\Scripts\LeanSelect3DTransform.cs" />
+     <Compile Include="Assets\LeanTouch\Examples\Scripts\LeanSelect3DTransformRelative.cs" />
+     <Compile Include="Assets\LeanTouch\Examples\Scripts\LeanSideCamera3D.cs" />
+     <Compile Include="Assets\LeanTouch\Examples\Scripts\LeanSwipeDirection4.cs" />
+     <Compile Include="Assets\LeanTouch\Examples\Scripts\LeanSwipeDirection8.cs" />
+     <Compile Include="Assets\LeanTouch\Examples\Scripts\LeanSwipeRigidbody2D.cs" />
+     <Compile Include="Assets\LeanTouch\Examples\Scripts\LeanSwipeRigidbody2DNoRelease.cs" />
+     <Compile Include="Assets\LeanTouch\Examples\Scripts\LeanSwipeRigidbody3D.cs" />
+     <Compile Include="Assets\LeanTouch\Examples\Scripts\LeanSwipeRigidbody3DNoRelease.cs" />
+     <Compile Include="Assets\LeanTouch\Examples\Scripts\LeanTapSpawn.cs" />
+     <Compile Include="Assets\LeanTouch\Examples\Scripts\LeanTouchEvents.cs" />
+     <Compile Include="Assets\LeanTouch\Examples\Scripts\LeanTransform.cs" />
+     <Compile Include="Assets\LeanTouch\Examples\Scripts\LeanTransformRelative.cs" />
+     <Compile Include="Assets\LeanTouch\Scripts\LeanFinger.cs" />
+     <Compile Include="Assets\LeanTouch\Scripts\LeanSnapshot.cs" />
      <Compile Include="Assets\Scrips\AbrirURL.cs" />
      <Compile Include="Assets\Scrips\AspectUtility.cs" />
      <Compile Include="Assets\Scrips\BackPressed.cs" />
      <Compile Include="Assets\Scrips\ButtonAnim.cs" />
+     <Compile Include="Assets\Scrips\DefinirLimiteINF.cs" />
      <Compile Include="Assets\Scrips\IrPantalla.cs" />
+     <Compile Include="Assets\Scrips\LeanSideCamera2D.cs" />
+     <Compile Include="Assets\Scrips\LeanTouch.cs" />
      <Compile Include="Assets\Scrips\Serie.cs" />
      <Compile Include="Assets\Scrips\SerieController.cs" />
+     <Compile Include="Assets\Scrips\SwitchObject.cs" />
+     <Compile Include="Assets\Scrips\Temporada.cs" />
+     <Compile Include="Assets\Scrips\TemporadasController.cs" />
+     <Compile Include="Assets\Scrips\setLimiteINF.cs" />
+     <None Include="Assets\Resources\Files\Series\The big bang theory\The big bang theory.txt" />
+     <None Include="Assets\LeanTouch\Examples\Fonts\OFL.txt" />
+     <None Include="Assets\Resources\Files\Series\Dexter\Dexter.txt" />
+     <None Include="Assets\LeanTouch\Examples\Shaders\BackgroundSkybox.shader" />
+     <None Include="Assets\LeanTouch\Examples\Shaders\Smooth.shader" />
+     <None Include="Assets\Resources\Files\Series\Friends\Friends.txt" />
+     <None Include="Assets\Resources\Files\Series\Game of Thrones\Game of Thrones.txt" />
+     <None Include="Assets\Resources\Files\Series\House M. D\House M. D.txt" />
+     <None Include="Assets\Resources\Files\Series\The Walking Dead\The Walking Dead.txt" />
+     <None Include="Assets\Resources\Files\Series\The Simpsons\The Simpsons.txt" />
      <None Include="Assets\Resources\Files\Series.txt" />
+     <None Include="Assets\Resources\Files\Series\Two and a half Men\Two and a half Men.txt" />
+     <None Include="Assets\Resources\Files\Series\How I Met Your Mother\How I Met Your Mother.txt" />
+     <None Include="Assets\Resources\Files\Series\Lost\Lost.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

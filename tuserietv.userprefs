@@ -1,11 +1,14 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\Files\Series.txt">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\Files\Series\Two and a half Men\Two and a half Men.txt">
     <Files>
-      <File FileName="Assets\Scrips\Serie.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scrips\SerieController.cs" Line="26" Column="144" />
-      <File FileName="Assets\Resources\Files\Series.txt" Line="10" Column="1" />
-      <File FileName="D:\Unity proyects\Album Pokemon\Assets\Scrips\OrdenarPokemons.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scrips\DefinirLimiteINF.cs" Line="5" Column="2" />
+      <File FileName="Assets\Scrips\LeanSideCamera2D.cs" Line="14" Column="15" />
+      <File FileName="Assets\Resources\Files\Series.txt" Line="3" Column="11" />
+      <File FileName="Assets\Scrips\setLimiteINF.cs" Line="10" Column="33" />
+      <File FileName="Assets\Scrips\SerieController.cs" Line="25" Column="142" />
+      <File FileName="Assets\Scrips\TemporadasController.cs" Line="17" Column="67" />
+      <File FileName="Assets\Resources\Files\Series\Two and a half Men\Two and a half Men.txt" Line="13" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
