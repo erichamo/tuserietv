@@ -10,6 +10,8 @@ public class SerieController : MonoBehaviour {
 	setLimitSeries limiteSeries;
 	private int num_Series;
 
+	internal Serie seriePlay;
+
 	void Start () {
 		limiteINF = (DefinirLimiteINF)(FindObjectOfType(typeof(DefinirLimiteINF)));
 		limiteSeries = (setLimitSeries)(FindObjectOfType(typeof(setLimitSeries)));

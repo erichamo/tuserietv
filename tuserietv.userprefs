@@ -1,17 +1,6 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\Files\Series.txt">
-    <Files>
-      <File FileName="Assets\Scrips\DefinirLimiteINF.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scrips\LeanSideCamera2D.cs" Line="1" Column="1" />
-      <File FileName="Assets\Resources\Files\Series.txt" Line="10" Column="19" />
-      <File FileName="Assets\Scrips\setLimiteINF.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scrips\SerieController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scrips\TemporadasController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scrips\Serie.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scrips\setLimitSeries.cs" Line="1" Column="1" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

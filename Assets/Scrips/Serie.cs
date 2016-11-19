@@ -6,7 +6,10 @@ public class Serie : MonoBehaviour {
 	public Text nombre;
 
 	void OnMouseUpAsButton(){
+		SerieController serieControl = (SerieController) FindObjectOfType(typeof(SerieController));
+		serieControl.seriePlay = this;
+
 		TemporadasController temporadaControl = (TemporadasController)(FindObjectOfType(typeof(TemporadasController)));
-		temporadaControl.crear_ListaTemporadas(nombre.text);
+		temporadaControl.crear_ListaTemporadas(nombre.text.ToString());
 	}
 }

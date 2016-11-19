@@ -7,9 +7,6 @@ public class setLimitSeries : MonoBehaviour {
 
 	internal float limiteINFseries;
 
-	void Start(){
-	}
-
 	void OnMouseUpAsButton(){
 		leanCamera.limINF = limiteINFseries;
 	}
