@@ -8,8 +8,11 @@ public class TemporadasController : MonoBehaviour {
 	private TextAsset lista_temporadas;
 	private int num_temporadas;
 
+	Lean.Touch.LeanSideCamera2D limiteINF;
+
 	void Start () {
 		num_temporadas = 0;
+		limiteINF = ( Lean.Touch.LeanSideCamera2D)(FindObjectOfType(typeof( Lean.Touch.LeanSideCamera2D)));
 	}
 
 	public void crear_ListaTemporadas(string name_serie){
@@ -21,16 +24,16 @@ public class TemporadasController : MonoBehaviour {
 
 		while(valor!=null){
 			GameObject temporadaTemp = (GameObject)(Instantiate(Temporada_Base.gameObject,transform));
-			temporadaTemp.name = (content.Split("\n"[0])[num_temporadas].ToString());
+			temporadaTemp.name = "Temporada "+(content.Split("\n"[0])[num_temporadas].ToString()).Split(","[0])[0].ToString();
 			temporadaTemp.GetComponent<Temporada>().nombre.text = temporadaTemp.name;
 			temporadaTemp.transform.localPosition = new Vector3(Temporada_Base.gameObject.transform.localPosition.x,7.5f-1.5f*num_temporadas,Temporada_Base.gameObject.transform.localPosition.z);
-		
-			DefinirLimiteINF limiteINF = (DefinirLimiteINF)(FindObjectOfType(typeof(DefinirLimiteINF)));
-			limiteINF.limiteINF = temporadaTemp.transform.localPosition.y;
+
+			limiteINF.limINF = temporadaTemp.transform.localPosition.y;
 
 			num_temporadas++;
 			if(content.Split("\n"[0])[num_temporadas] == "*") break;
 		}
+		if(limiteINF.limINF<=-1.5f) limiteINF.limINF+=1.5f;
 	}
 
 	private void limpiarLista(){

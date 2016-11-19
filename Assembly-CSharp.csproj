@@ -86,6 +86,7 @@
      <Compile Include="Assets\Scrips\SwitchObject.cs" />
      <Compile Include="Assets\Scrips\Temporada.cs" />
      <Compile Include="Assets\Scrips\TemporadasController.cs" />
+     <Compile Include="Assets\Scrips\setLimitSeries.cs" />
      <Compile Include="Assets\Scrips\setLimiteINF.cs" />
      <None Include="Assets\Resources\Files\Series\The big bang theory\The big bang theory.txt" />
      <None Include="Assets\LeanTouch\Examples\Fonts\OFL.txt" />
