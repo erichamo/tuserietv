@@ -79,7 +79,12 @@
      <Compile Include="Assets\Scrips\ButtonAnim.cs" />
      <Compile Include="Assets\Scrips\Capitulo.cs" />
      <Compile Include="Assets\Scrips\CapitulosController.cs" />
+     <Compile Include="Assets\Scrips\Conexion\QuitApp.cs" />
+     <Compile Include="Assets\Scrips\Conexion\RetryConextion.cs" />
+     <Compile Include="Assets\Scrips\Conexion\TestConection.cs" />
+     <Compile Include="Assets\Scrips\Conexion\download.cs" />
      <Compile Include="Assets\Scrips\DefinirLimiteINF.cs" />
+     <Compile Include="Assets\Scrips\GoSceneToStart.cs" />
      <Compile Include="Assets\Scrips\IrPantalla.cs" />
      <Compile Include="Assets\Scrips\LeanSideCamera2D.cs" />
      <Compile Include="Assets\Scrips\LeanTouch.cs" />

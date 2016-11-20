@@ -5,7 +5,6 @@ public class CapitulosController : MonoBehaviour {
 
 	public Capitulo Capitulo_Base;
 
-	private TextAsset lista_capitulos;
 	private int num_capitulos;
 
 	Lean.Touch.LeanSideCamera2D limiteINF;
@@ -21,8 +20,6 @@ public class CapitulosController : MonoBehaviour {
 	public void crear_ListaCapitulos(string name_capitulo, int numCapitulos){
 		limpiarLista();
 		num_capitulos = numCapitulos;
-		string nameCapituloTemp = name_capitulo.Remove(name_capitulo.Length-1,1);
-		lista_capitulos = Resources.Load<TextAsset>("Files/Series/"+nameCapituloTemp+"/"+nameCapituloTemp);
 
 		for(int i= 1; i<= num_capitulos; i++){			
 			GameObject capituloTemp = (GameObject)(Instantiate(Capitulo_Base.gameObject,transform));
