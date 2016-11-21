@@ -5,8 +5,9 @@ public class TemporadasController : MonoBehaviour {
 
 	public Temporada Temporada_Base;
 
-	private string lista_temporadas;
+	private string lista_temporadasINFO;
 	internal string textoInfoTemporadas;
+	internal string lista_capitulos_seriesINFO,lista_capitulos_series;
 	private int num_temporadas;
 
 	Lean.Touch.LeanSideCamera2D limiteINF;
@@ -18,7 +19,6 @@ public class TemporadasController : MonoBehaviour {
 		num_temporadas = 0;
 		limiteINF = ( Lean.Touch.LeanSideCamera2D)(FindObjectOfType(typeof( Lean.Touch.LeanSideCamera2D)));
 		limitTemporadas = (setLimitTemporadas)(FindObjectOfType(typeof(setLimitTemporadas)));
-
 	}
 
 
@@ -31,13 +31,13 @@ public class TemporadasController : MonoBehaviour {
 
 		if(www.error != null)
 		{
-			print("faild to connect to internet, trying after 2 seconds.");
+			print("no se encontro: ubicacion de la informacion de las temporadas de la series");
 			yield return new WaitForSeconds(2);// trying again after 2 sec
 			StartCoroutine(descargaFileTemporadas(name_serie));
 		}
 		else
 		{
-			print("connected to internet");
+			print("Descargando... ubicacion de la informacion de las temporadas de la series");
 			// do somthing, play sound effect for example
 			yield return new WaitForSeconds(1);// recheck if the internet still exists after 5 sec
 			while (!www.isDone)
@@ -68,11 +68,11 @@ public class TemporadasController : MonoBehaviour {
 			i++;
 			if(content.Split("\n"[0])[i] == "*") break;
 		}
-		StartCoroutine(descargaInfoTemporadas(urlInfoTEmp.Remove(urlInfoTEmp.Length-1,1)));
+		StartCoroutine(descargaInfoTemporadas(urlInfoTEmp.Remove(urlInfoTEmp.Length-1,1),name_serie));
 	}
 
 
-	IEnumerator descargaInfoTemporadas(string urlInfoTempSerie)
+	IEnumerator descargaInfoTemporadas(string urlInfoTempSerie, string name_serie)
 	{
 		screenLoading.gameObject.SetActive(true);
 		//link del archivo
@@ -81,13 +81,13 @@ public class TemporadasController : MonoBehaviour {
 
 		if(www.error != null)
 		{
-			print("faild to connect to internet, trying after 2 seconds.");
+			print("no se encontro: archivo de la temporada de la serie");
 			yield return new WaitForSeconds(1);// trying again after 2 sec
-			StartCoroutine(descargaInfoTemporadas(urlInfoTempSerie));
+			StartCoroutine(descargaInfoTemporadas(urlInfoTempSerie,name_serie));
 		}
 		else
 		{
-			print("connected to internet");
+			print("Descargando... archivo de la temporada de la serie");
 			// do somthing, play sound effect for example
 			yield return new WaitForSeconds(2);// recheck if the internet still exists after 5 sec
 			while (!www.isDone)
@@ -95,23 +95,106 @@ public class TemporadasController : MonoBehaviour {
 				yield return null;
 			}
 			screenLoading.gameObject.SetActive(false);
-			lista_temporadas = www.text;
-			crear_ListaTemporadas();
+			lista_temporadasINFO = www.text;
+			StartCoroutine(descargaFileCapitulos(name_serie));
+			//crear_ListaTemporadas();
 		}
 
 	}
 
 
+	public IEnumerator descargaFileCapitulos(string name_serie)
+	{
+		screenLoading.gameObject.SetActive(true);
+		//link del archivo
+		WWW www = new WWW("https://docs.google.com/uc?export=download&id=0BwymD5zXtSN5bnBYYU14ZkpoTUU");
+		yield return www;
 
+		if(www.error != null)
+		{
+			print("no se encontro: ubicacion de la informacion de los capitulos de las temporadas");
+			yield return new WaitForSeconds(2);// trying again after 2 sec
+			StartCoroutine(descargaFileCapitulos(name_serie));
+		}
+		else
+		{
+			print("Descargando... ubicacion de la informacion de los capitulos de las temporadas");
+			// do somthing, play sound effect for example
+			yield return new WaitForSeconds(1);// recheck if the internet still exists after 5 sec
+			while (!www.isDone)
+			{
+				yield return null;
+			}
+			screenLoading.gameObject.SetActive(false);
+			lista_capitulos_seriesINFO = www.text;
+			cargarInfoCapitulos(name_serie);
+		}
+
+	}
+
+	void cargarInfoCapitulos(string name_serie){
+		string urlInfoTEmp = "";
+		string nameSerieTemp = name_serie.Remove(name_serie.Length-1,1);
+		string content = lista_capitulos_seriesINFO;
+		string valor = "";
+		int i = 0;
+
+		while(valor!=null){
+			if(nameSerieTemp == (content.Split("\n"[0])[i].ToString()).Split(","[0])[0].ToString()) {
+				urlInfoTEmp = (content.Split("\n"[0])[i].ToString()).Split(","[0])[1].ToString();
+				break;
+			}
+			i++;
+			if(content.Split("\n"[0])[i] == "*") break;
+		}
+		StartCoroutine(descargaInfoCapitulos(urlInfoTEmp.Remove(urlInfoTEmp.Length-1,1)));
+	}
+
+
+	IEnumerator descargaInfoCapitulos(string urlInfoTempSerie)
+	{
+		screenLoading.gameObject.SetActive(true);
+		//link del archivo
+		WWW www = new WWW(urlInfoTempSerie);
+		yield return www;
+
+		if(www.error != null)
+		{
+			print("no se encontro: informacion de los capitulos de las temporadas");
+			yield return new WaitForSeconds(1);// trying again after 2 sec
+			StartCoroutine(descargaInfoCapitulos(urlInfoTempSerie));
+		}
+		else
+		{
+			print("Descargando... informacion de los capitulos de las temporadas");
+			// do somthing, play sound effect for example
+			yield return new WaitForSeconds(2);// recheck if the internet still exists after 5 sec
+			while (!www.isDone)
+			{
+				yield return null;
+			}
+			screenLoading.gameObject.SetActive(false);
+			lista_capitulos_series = www.text;
+			crear_ListaTemporadas();
+		}
+
+	}
 
 	public void crear_ListaTemporadas(){
 		limpiarLista();
-		string content = lista_temporadas;
+		string content = lista_temporadasINFO;
 		string valor = "";
 
 		while(valor!=null){
 			GameObject temporadaTemp = (GameObject)(Instantiate(Temporada_Base.gameObject,transform));
-			temporadaTemp.name = "Temporada "+(content.Split("\n"[0])[num_temporadas].ToString()).Split(","[0])[0].ToString();
+			temporadaTemp.GetComponent<Temporada>().numTemporada =int.Parse((content.Split("\n"[0])[num_temporadas].ToString()).Split(","[0])[0].ToString());
+
+			if(temporadaTemp.GetComponent<Temporada>().numTemporada<10){
+				temporadaTemp.name = "Temporada 0"+temporadaTemp.GetComponent<Temporada>().numTemporada.ToString();
+			}else{
+				temporadaTemp.name = "Temporada "+temporadaTemp.GetComponent<Temporada>().numTemporada.ToString();
+			}
+
 			temporadaTemp.GetComponent<Temporada>().numCapitulos = int.Parse((content.Split("\n"[0])[num_temporadas].ToString()).Split(","[0])[1].ToString());
 			temporadaTemp.GetComponent<Temporada>().nombre.text = temporadaTemp.name;
 			temporadaTemp.transform.localPosition = new Vector3(Temporada_Base.gameObject.transform.localPosition.x,7.5f-1.5f*num_temporadas,Temporada_Base.gameObject.transform.localPosition.z);

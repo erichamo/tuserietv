@@ -19,8 +19,6 @@ public class SerieController : MonoBehaviour {
 
 	public LoadingScreen screenLoading;
 
-	private Sprite imageSerieTemp = null;
-
 	void Start () {
 		limiteINF = (DefinirLimiteINF)(FindObjectOfType(typeof(DefinirLimiteINF)));
 		limiteSeries = (setLimitSeries)(FindObjectOfType(typeof(setLimitSeries)));
@@ -40,13 +38,13 @@ public class SerieController : MonoBehaviour {
 
 		if(www.error != null)
 		{
-			print("faild to connect to internet, trying after 2 seconds.");
+			print("No se encontro: lista de series");
 			yield return new WaitForSeconds(2);// trying again after 2 sec
 			StartCoroutine(DownloadSeriesInfo());
 		}
 		else
 		{
-			print("connected to internet");
+			print("Descargando... lista de series");
 			// do somthing, play sound effect for example
 			yield return new WaitForSeconds(1);// recheck if the internet still exists after 5 sec
 			while (!www.isDone)
@@ -69,13 +67,13 @@ public class SerieController : MonoBehaviour {
 
 		if(www.error != null)
 		{
-			print("faild to connect to internet, trying after 2 seconds.");
+			print("no se encontro: ubicacion de imagenes de las series");
 			yield return new WaitForSeconds(2);// trying again after 2 sec
 			StartCoroutine(DownloadInfoImagesSeries());
 		}
 		else
 		{
-			print("connected to internet");
+			print("Descargando... ubicaion imagenes de las series");
 			// do somthing, play sound effect for example
 			yield return new WaitForSeconds(1);// recheck if the internet still exists after 5 sec
 			while (!www.isDone)
@@ -137,13 +135,13 @@ public class SerieController : MonoBehaviour {
 
 		if(imageDownload.error != null)
 		{
-			print("faild to connect to internet, trying after 2 seconds.");
+			print("no se encontro: imagenes de las series");
 			yield return new WaitForSeconds(1);// trying again after 2 sec
 			StartCoroutine(DownloadImagesSeries(urlImage,spriteImage));
 		}
 		else
 		{
-			print("connected to internet");
+			print("Descargando... imagenes de las series");
 			// do somthing, play sound effect for example
 			yield return new WaitForSeconds(1);// recheck if the internet still exists after 5 sec
 			while (!imageDownload.isDone)
