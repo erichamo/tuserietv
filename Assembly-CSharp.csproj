@@ -83,11 +83,13 @@
      <Compile Include="Assets\Scrips\Conexion\RetryConextion.cs" />
      <Compile Include="Assets\Scrips\Conexion\TestConection.cs" />
      <Compile Include="Assets\Scrips\Conexion\download.cs" />
+     <Compile Include="Assets\Scrips\DataLoadServer.cs" />
      <Compile Include="Assets\Scrips\DefinirLimiteINF.cs" />
      <Compile Include="Assets\Scrips\GoSceneToStart.cs" />
      <Compile Include="Assets\Scrips\IrPantalla.cs" />
      <Compile Include="Assets\Scrips\LeanSideCamera2D.cs" />
      <Compile Include="Assets\Scrips\LeanTouch.cs" />
+     <Compile Include="Assets\Scrips\LoadingScreen.cs" />
      <Compile Include="Assets\Scrips\Serie.cs" />
      <Compile Include="Assets\Scrips\SerieController.cs" />
      <Compile Include="Assets\Scrips\SwitchObject.cs" />
@@ -96,21 +98,9 @@
      <Compile Include="Assets\Scrips\setLimitSeries.cs" />
      <Compile Include="Assets\Scrips\setLimitTemporadas.cs" />
      <Compile Include="Assets\Scrips\setLimiteINF.cs" />
-     <None Include="Assets\Resources\Files\Series\The big bang theory\The big bang theory.txt" />
      <None Include="Assets\LeanTouch\Examples\Fonts\OFL.txt" />
-     <None Include="Assets\Resources\Files\Series\Dexter\Dexter.txt" />
      <None Include="Assets\LeanTouch\Examples\Shaders\BackgroundSkybox.shader" />
      <None Include="Assets\LeanTouch\Examples\Shaders\Smooth.shader" />
-     <None Include="Assets\Resources\Files\Series\Friends\Friends.txt" />
-     <None Include="Assets\Resources\Files\Series\Game of Thrones\Game of Thrones.txt" />
-     <None Include="Assets\Resources\Files\Series\House M. D\House M. D.txt" />
-     <None Include="Assets\Resources\Files\Series\The Walking Dead\The Walking Dead.txt" />
-     <None Include="Assets\Resources\Files\Series\The Simpsons\The Simpsons.txt" />
-     <None Include="Assets\Resources\Files\Series.txt" />
-     <None Include="Assets\Resources\Files\Series\Lost\T1\capitulos.txt" />
-     <None Include="Assets\Resources\Files\Series\Two and a half Men\Two and a half Men.txt" />
-     <None Include="Assets\Resources\Files\Series\How I Met Your Mother\How I Met Your Mother.txt" />
-     <None Include="Assets\Resources\Files\Series\Lost\Lost.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

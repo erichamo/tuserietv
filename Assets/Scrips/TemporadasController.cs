@@ -5,24 +5,108 @@ public class TemporadasController : MonoBehaviour {
 
 	public Temporada Temporada_Base;
 
-	private TextAsset lista_temporadas;
+	private string lista_temporadas;
+	internal string textoInfoTemporadas;
 	private int num_temporadas;
 
 	Lean.Touch.LeanSideCamera2D limiteINF;
 
 	setLimitTemporadas limitTemporadas;
+	public LoadingScreen screenLoading;
 
 	void Start () {
 		num_temporadas = 0;
 		limiteINF = ( Lean.Touch.LeanSideCamera2D)(FindObjectOfType(typeof( Lean.Touch.LeanSideCamera2D)));
 		limitTemporadas = (setLimitTemporadas)(FindObjectOfType(typeof(setLimitTemporadas)));
+
 	}
 
-	public void crear_ListaTemporadas(string name_serie){
-		limpiarLista();
+
+	public IEnumerator descargaFileTemporadas(string name_serie)
+	{
+		screenLoading.gameObject.SetActive(true);
+		//link del archivo
+		WWW www = new WWW("https://docs.google.com/uc?export=download&id=0BwymD5zXtSN5MmRhUWdkODRVX2M");
+		yield return www;
+
+		if(www.error != null)
+		{
+			print("faild to connect to internet, trying after 2 seconds.");
+			yield return new WaitForSeconds(2);// trying again after 2 sec
+			StartCoroutine(descargaFileTemporadas(name_serie));
+		}
+		else
+		{
+			print("connected to internet");
+			// do somthing, play sound effect for example
+			yield return new WaitForSeconds(1);// recheck if the internet still exists after 5 sec
+			while (!www.isDone)
+			{
+				yield return null;
+			}
+			screenLoading.gameObject.SetActive(false);
+			textoInfoTemporadas = www.text;
+			cargarInfoTemporada(name_serie);
+		}
+
+	}
+		
+
+	void cargarInfoTemporada(string name_serie){
+		string urlInfoTEmp = "";
 		string nameSerieTemp = name_serie.Remove(name_serie.Length-1,1);
-		lista_temporadas = Resources.Load<TextAsset>("Files/Series/"+nameSerieTemp+"/"+nameSerieTemp);
-		string content = lista_temporadas.text;
+		string content = textoInfoTemporadas;
+		string valor = "";
+		int i = 0;
+
+		while(valor!=null){
+			if(nameSerieTemp == (content.Split("\n"[0])[i].ToString()).Split(","[0])[0].ToString()) {
+				urlInfoTEmp = (content.Split("\n"[0])[i].ToString()).Split(","[0])[1].ToString();
+				break;
+			}
+
+			i++;
+			if(content.Split("\n"[0])[i] == "*") break;
+		}
+		StartCoroutine(descargaInfoTemporadas(urlInfoTEmp.Remove(urlInfoTEmp.Length-1,1)));
+	}
+
+
+	IEnumerator descargaInfoTemporadas(string urlInfoTempSerie)
+	{
+		screenLoading.gameObject.SetActive(true);
+		//link del archivo
+		WWW www = new WWW(urlInfoTempSerie);
+		yield return www;
+
+		if(www.error != null)
+		{
+			print("faild to connect to internet, trying after 2 seconds.");
+			yield return new WaitForSeconds(1);// trying again after 2 sec
+			StartCoroutine(descargaInfoTemporadas(urlInfoTempSerie));
+		}
+		else
+		{
+			print("connected to internet");
+			// do somthing, play sound effect for example
+			yield return new WaitForSeconds(2);// recheck if the internet still exists after 5 sec
+			while (!www.isDone)
+			{
+				yield return null;
+			}
+			screenLoading.gameObject.SetActive(false);
+			lista_temporadas = www.text;
+			crear_ListaTemporadas();
+		}
+
+	}
+
+
+
+
+	public void crear_ListaTemporadas(){
+		limpiarLista();
+		string content = lista_temporadas;
 		string valor = "";
 
 		while(valor!=null){

@@ -10,6 +10,7 @@ public class Serie : MonoBehaviour {
 		serieControl.seriePlay = this;
 
 		TemporadasController temporadaControl = (TemporadasController)(FindObjectOfType(typeof(TemporadasController)));
-		temporadaControl.crear_ListaTemporadas(nombre.text.ToString());
+		//temporadaControl.crear_ListaTemporadas(nombre.text.ToString());
+		StartCoroutine(temporadaControl.descargaFileTemporadas(nombre.text.ToString()));
 	}
 }
