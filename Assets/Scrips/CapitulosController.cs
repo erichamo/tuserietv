@@ -49,28 +49,9 @@ public class CapitulosController : MonoBehaviour {
 	}
 
 	void asignarLink(Capitulo capitulo, int numTemporada, int numCapitulo){
-		string nameCapituloTemp;
-		if(numCapitulo<10){
-			nameCapituloTemp = numTemporada.ToString()+"x0"+numCapitulo.ToString();
-		}else{
-			nameCapituloTemp = numTemporada.ToString()+"x"+numCapitulo.ToString();
-		}
-		//print(nameCapituloTemp);
-		string content = temporadaControl.lista_capitulos_series;
-		string valor = "";
-		int i = 0;
-
-		while(valor!=null){
-			
-			if(nameCapituloTemp == (content.Split("\n"[0])[i].ToString()).Split(","[0])[0].ToString()) {
-				capitulo.linkURL = (content.Split("\n"[0])[i].ToString()).Split(","[0])[1].ToString();
-				capitulo.linkDownload = (content.Split("\n"[0])[i].ToString()).Split(","[0])[2].ToString();
-				break;
-			}
-
-			i++;
-			if(content.Split("\n"[0])[i] == "*") break;
-		}
+		//print(((temporadaControl.temporadasXcapitulos[numTemporada])[numCapitulo])[0]);
+		capitulo.linkURL = ((temporadaControl.temporadasXcapitulos[numTemporada-1][numCapitulo-1][0]));
+		capitulo.linkDownload = ((temporadaControl.temporadasXcapitulos[numTemporada-1][numCapitulo-1][1]));
 	}
 
 	private void limpiarLista(){

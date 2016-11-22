@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class TemporadasController : MonoBehaviour {
 
@@ -10,12 +11,15 @@ public class TemporadasController : MonoBehaviour {
 	internal string lista_capitulos_seriesINFO,lista_capitulos_series;
 	private int num_temporadas;
 
+	internal List<List<List<string>>> temporadasXcapitulos;
+
 	Lean.Touch.LeanSideCamera2D limiteINF;
 
 	setLimitTemporadas limitTemporadas;
 	public LoadingScreen screenLoading;
 
 	void Start () {
+		temporadasXcapitulos = new List<List<List<string>>>();
 		num_temporadas = 0;
 		limiteINF = ( Lean.Touch.LeanSideCamera2D)(FindObjectOfType(typeof( Lean.Touch.LeanSideCamera2D)));
 		limitTemporadas = (setLimitTemporadas)(FindObjectOfType(typeof(setLimitTemporadas)));
@@ -175,12 +179,12 @@ public class TemporadasController : MonoBehaviour {
 			}
 			screenLoading.gameObject.SetActive(false);
 			lista_capitulos_series = www.text;
-			crear_ListaTemporadas();
+			crear_ListaTemporadas(lista_capitulos_series);
 		}
-
 	}
 
-	public void crear_ListaTemporadas(){
+
+	public void crear_ListaTemporadas(string lista_capitulosX){
 		limpiarLista();
 		string content = lista_temporadasINFO;
 		string valor = "";
@@ -208,7 +212,36 @@ public class TemporadasController : MonoBehaviour {
 			if(content.Split("\n"[0])[num_temporadas] == "*") break;
 		}
 		if(limiteINF.limINF<=-1.5f) limiteINF.limINF+=1.5f;
+
+		llenarList(num_temporadas,lista_capitulosX);
 	}
+		
+
+	void llenarList(int numTemporadas, string contentX){
+		string content = contentX;
+		temporadasXcapitulos = new List<List<List<string>>>();
+		int numCapitulosTemp = 1;
+		for(int tempActual = 1; tempActual<=numTemporadas; tempActual++){
+			List<List<string>> temporadaListTemp = new List<List<string>>();
+			string numCapitulo = (content.Split("\n"[0])[numCapitulosTemp-1].ToString().Split(","[0])[0].ToString());
+			numCapitulo = numCapitulo.Remove(numCapitulo.Length-3,3);
+
+			while(int.Parse(numCapitulo)==tempActual){
+				List<string> view_Download = new List<string>();
+				view_Download.Add(content.Split("\n"[0])[numCapitulosTemp-1].ToString().Split(","[0])[1].ToString());
+				view_Download.Add(content.Split("\n"[0])[numCapitulosTemp-1].ToString().Split(","[0])[2].ToString());
+				temporadaListTemp.Add(view_Download);
+
+				numCapitulosTemp++;
+				numCapitulo = (content.Split("\n"[0])[numCapitulosTemp-1].ToString().Split(","[0])[0].ToString());
+				numCapitulo = numCapitulo.Remove(numCapitulo.Length-3,3);
+
+				if(content.Split("\n"[0])[numCapitulosTemp] == "*") break;
+			}
+			temporadasXcapitulos.Add(temporadaListTemp);
+		}
+	}
+
 
 	private void limpiarLista(){
 		num_temporadas = 0;

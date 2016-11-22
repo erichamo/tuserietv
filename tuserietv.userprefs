@@ -1,13 +1,13 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scrips\Capitulo.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scrips\TemporadasController.cs">
     <Files>
-      <File FileName="Assets\Scrips\Capitulo.cs" Line="14" Column="1" />
-      <File FileName="Assets\Scrips\CapitulosController.cs" Line="51" Column="73" />
+      <File FileName="Assets\Scrips\Capitulo.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scrips\CapitulosController.cs" Line="53" Column="98" />
+      <File FileName="Assets\Scrips\TemporadasController.cs" Line="223" Column="28" />
       <File FileName="Assets\Scrips\SerieController.cs" Line="46" Column="4" />
-      <File FileName="Assets\Scrips\TemporadasController.cs" Line="197" Column="4" />
       <File FileName="Assets\Scrips\Temporada.cs" Line="14" Column="87" />
-      <File FileName="Assets\Scrips\Serie.cs" Line="17" Column="1" />
+      <File FileName="Assets\Scrips\Serie.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
